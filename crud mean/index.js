@@ -1,0 +1,10 @@
+const express= require('express');
+const bodyParse= require('body-parser');
+const {mongoos}=require('./db.js');
+const cors = require('cors');
+var empcont=require('./controller/empcontroller.js');
+var app=express();
+app.use(bodyParse.json());
+app.use(cors({ origin:'http://localhost:4200' }));
+app.listen(3000,()=>console.log("server started  :3000"));
+app.use('/employees',empcont);
